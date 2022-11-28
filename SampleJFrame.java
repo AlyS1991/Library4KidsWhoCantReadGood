@@ -30,9 +30,9 @@ public class SampleJFrame extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        calculateBtn = new javax.swing.JButton();
-        viewMembers = new javax.swing.JButton();
         viewItems = new javax.swing.JButton();
+        viewMembers = new javax.swing.JButton();
+        viewOnLoan = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -47,10 +47,10 @@ public class SampleJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        calculateBtn.setText("View All Items");
-        calculateBtn.addActionListener(new java.awt.event.ActionListener() {
+        viewItems.setText("View All Items");
+        viewItems.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calculateBtnActionPerformed(evt);
+                viewItemsActionPerformed(evt);
             }
         });
 
@@ -61,11 +61,11 @@ public class SampleJFrame extends javax.swing.JFrame {
             }
         });
 
-        viewItems.setText("View Items on Loan");
-        viewItems.setActionCommand("viewItems");
-        viewItems.addActionListener(new java.awt.event.ActionListener() {
+        viewOnLoan.setText("View Items on Loan");
+        viewOnLoan.setActionCommand("viewItems");
+        viewOnLoan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewItemsActionPerformed(evt);
+                viewOnLoanActionPerformed(evt);
             }
         });
 
@@ -73,7 +73,13 @@ public class SampleJFrame extends javax.swing.JFrame {
         jLabel1.setText("South Dublin Libraries Database");
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Pleae Choose an Option Below");
+        jLabel2.setText("Please Choose an Option Below");
+
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -83,9 +89,9 @@ public class SampleJFrame extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(viewMembers, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
-                .addComponent(calculateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(viewItems, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(viewOnLoan, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jSeparator1)
@@ -112,8 +118,8 @@ public class SampleJFrame extends javax.swing.JFrame {
                 .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(viewMembers, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(calculateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(viewItems, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(viewItems, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewOnLoan, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -121,7 +127,7 @@ public class SampleJFrame extends javax.swing.JFrame {
                 .addContainerGap(197, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Simple", jPanel1);
+        jTabbedPane1.addTab("Menu", jPanel1);
 
         jButton1.setText("Start");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -185,7 +191,7 @@ public class SampleJFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Tables", jPanel2);
+        jTabbedPane1.addTab("Members", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -193,12 +199,12 @@ public class SampleJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
 
@@ -213,27 +219,23 @@ public class SampleJFrame extends javax.swing.JFrame {
         tableModel.setDataVector(DataHandler.getRows(tName), DataHandler.getTitles(tName));
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void viewItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewItemsActionPerformed
+    private void viewOnLoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewOnLoanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_viewItemsActionPerformed
+    }//GEN-LAST:event_viewOnLoanActionPerformed
 
     private void viewMembersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewMembersActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_viewMembersActionPerformed
 
-    private void calculateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateBtnActionPerformed
+    private void viewItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewItemsActionPerformed
         // TODO add your handling code here:
-        System.out.println("Button clicked");
-        int age = 0, age_2020;
-        // get user input
-        String ageStr = ageTxtField.getText();
-        // parse string to int
-        age = Integer.parseInt(ageStr);
-        // calculate result
-        age_2020 = age - 2;
-        //show result
-        resultTxtArea.setText(""+age_2020);
-    }//GEN-LAST:event_calculateBtnActionPerformed
+         JPanel jp = new JPanel();
+        jTabbedPane1.add("Panel",jp);
+    }//GEN-LAST:event_viewItemsActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,7 +273,6 @@ public class SampleJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton calculateBtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -287,6 +288,7 @@ public class SampleJFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> tableNameCBox;
     private javax.swing.JButton viewItems;
     private javax.swing.JButton viewMembers;
+    private javax.swing.JButton viewOnLoan;
     // End of variables declaration//GEN-END:variables
     private javax.swing.table.DefaultTableModel tableModel;
 
