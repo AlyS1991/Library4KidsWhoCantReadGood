@@ -13,8 +13,7 @@ import java.util.logging.Logger;
 
 public class DataHandler {
 // DB details
-
-    private static final String dbURL = "jdbc:ucanaccess://librarydb.accdb;sysSchema=true";
+    private static final String dbURL = "jdbc:ucanaccess://D:/LibraryForKidsWhoCantReadGood/src/librarydb.accdb;sysSchema=true";
     private static java.sql.Connection con;
     private static java.sql.Statement stm;
     private static java.sql.ResultSet rs;
