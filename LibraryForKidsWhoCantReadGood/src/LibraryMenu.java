@@ -31,15 +31,15 @@ public class LibraryMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         viewMemDialog = new javax.swing.JDialog();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        resultSetTbl = new javax.swing.JTable();
+        viewPane1 = new javax.swing.JScrollPane();
+        memberTable = new javax.swing.JTable();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         viewPanel = new javax.swing.JPanel();
         viewButton = new javax.swing.JButton();
         manageButton = new javax.swing.JButton();
         addButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        managePanel = new javax.swing.JPanel();
         viewMembers = new javax.swing.JButton();
         viewBooks = new javax.swing.JButton();
         blah2 = new javax.swing.JButton();
@@ -56,7 +56,7 @@ public class LibraryMenu extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
-        resultSetTbl.setModel(new javax.swing.table.DefaultTableModel(
+        memberTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -67,7 +67,7 @@ public class LibraryMenu extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(resultSetTbl);
+        viewPane1.setViewportView(memberTable);
 
         javax.swing.GroupLayout viewMemDialogLayout = new javax.swing.GroupLayout(viewMemDialog.getContentPane());
         viewMemDialog.getContentPane().setLayout(viewMemDialogLayout);
@@ -75,14 +75,14 @@ public class LibraryMenu extends javax.swing.JFrame {
             viewMemDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(viewMemDialogLayout.createSequentialGroup()
                 .addGap(57, 57, 57)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(viewPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(68, Short.MAX_VALUE))
         );
         viewMemDialogLayout.setVerticalGroup(
             viewMemDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewMemDialogLayout.createSequentialGroup()
                 .addContainerGap(190, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(viewPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
 
@@ -161,11 +161,11 @@ public class LibraryMenu extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel7.setText("View Menu");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout managePanelLayout = new javax.swing.GroupLayout(managePanel);
+        managePanel.setLayout(managePanelLayout);
+        managePanelLayout.setHorizontalGroup(
+            managePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(managePanelLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(viewMembers, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
@@ -173,26 +173,26 @@ public class LibraryMenu extends javax.swing.JFrame {
                 .addGap(67, 67, 67)
                 .addComponent(blah2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(92, 92, 92))
-            .addGroup(jPanel4Layout.createSequentialGroup()
+            .addGroup(managePanelLayout.createSequentialGroup()
                 .addGap(361, 361, 361)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+        managePanelLayout.setVerticalGroup(
+            managePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managePanelLayout.createSequentialGroup()
                 .addContainerGap(43, Short.MAX_VALUE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(managePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, managePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(viewBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(viewMembers, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(blah2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
                 .addGap(177, 177, 177))
         );
 
-        jTabbedPane1.addTab("View", jPanel4);
+        jTabbedPane1.addTab("View", managePanel);
 
         manageMembers.setText("Manage Members");
         manageMembers.addActionListener(new java.awt.event.ActionListener() {
@@ -293,12 +293,13 @@ public class LibraryMenu extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(157, 157, 157)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addMembers, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(5, 5, 5)
-                        .addComponent(addItems, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)))
+                        .addComponent(addItems, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(addMembers, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(163, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
@@ -332,38 +333,66 @@ public class LibraryMenu extends javax.swing.JFrame {
 
     private void addItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addItemsActionPerformed
         // TODO add your handling code here:
+        JDialog addItemsForm = new JDialog();
+        addItemsForm.repaint();
+        
+       
     }//GEN-LAST:event_addItemsActionPerformed
 
     private void addMembersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMembersActionPerformed
         // TODO add your handling code here:
+         JDialog addMembersForm = new JDialog();
+        addMembersForm.setVisible(true);
+       
+        
     }//GEN-LAST:event_addMembersActionPerformed
 
     private void manageBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageBooksActionPerformed
         // TODO add your handling code here:
+         JDialog manageBooksForm = new JDialog();
+         JScrollPane managePane2 = new JScrollPane();
+        manageBooksForm.setVisible(true);
     }//GEN-LAST:event_manageBooksActionPerformed
 
     private void manageMembersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageMembersActionPerformed
         // TODO add your handling code here:
+         JDialog addItemsForm = new JDialog();
+        addItemsForm.setVisible(true);
+        
     }//GEN-LAST:event_manageMembersActionPerformed
 
     private void viewBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBooksActionPerformed
         // TODO add your handling code here:
+        JDialog addItemsForm = new JDialog();
+        addItemsForm.setVisible(true);
     }//GEN-LAST:event_viewBooksActionPerformed
 
     private void viewMembersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewMembersActionPerformed
         // TODO add your handling code here:
         JDialog viewMemDialog = new JDialog();
+        JScrollPane viewPane1 = new JScrollPane();
+        
         viewMemDialog.setVisible(true);
         viewMemDialog.setSize(900, 900);
+        viewPane1.setVisible(true);
+        memberTable.setVisible(true);
+        memberTable.setSize(900,900);
+        
+        membersTable
+        
+        
     }//GEN-LAST:event_viewMembersActionPerformed
 
     private void manageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageButtonActionPerformed
         // TODO add your handling code here:
+          JPanel managePanel = new JPanel();
+         // managePanel.setVisible(true);
     }//GEN-LAST:event_manageButtonActionPerformed
 
     private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
         // TODO add your handling code here:
         JPanel viewPanel = new JPanel();
+       
         
     }//GEN-LAST:event_viewButtonActionPerformed
 
@@ -395,18 +424,18 @@ public class LibraryMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton manageBooks;
     private javax.swing.JButton manageButton;
     private javax.swing.JButton manageLoans;
     private javax.swing.JButton manageMembers;
-    private javax.swing.JTable resultSetTbl;
+    private javax.swing.JPanel managePanel;
+    private javax.swing.JTable memberTable;
     private javax.swing.JButton viewBooks;
     private javax.swing.JButton viewButton;
     private javax.swing.JDialog viewMemDialog;
     private javax.swing.JButton viewMembers;
+    private javax.swing.JScrollPane viewPane1;
     private javax.swing.JPanel viewPanel;
     // End of variables declaration//GEN-END:variables
     private javax.swing.table.DefaultTableModel tableModel;
