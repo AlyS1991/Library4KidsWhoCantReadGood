@@ -98,20 +98,47 @@ public class LibraryMenu extends javax.swing.JFrame {
     
     public void show_items(){
         ArrayList<Items> list = itemsList();
-        DefaultTableModel model = (DefaultTableModel)memberTable.getModel();
+        DefaultTableModel model = (DefaultTableModel)itemTable.getModel();
         Object[] row = new Object[6];
             for(int i =0; i<list.size(); i++)
             {
                 row[0] = list.get(i).getItemID();
                 row[1] = list.get(i).getTitle();
-                row[2] = list.get(i).getGenre();
-                row[3] = list.get(i).getSurname();
-                row[4] = list.get(i).getPhoneNumber();
-                row[5] = list.get(i).getAddress();
+                row[2] = list.get(i).getAuthor();
+                row[3] = list.get(i).getPublishedYear();
+                row[4] = list.get(i).getGenre();
+                row[5] = list.get(i).getISBN();
                 
             }
     
     }
+    
+     
+    public ArrayList<Loan>  loansList(){
+        ArrayList<Loan> loanList = new ArrayList<>();
+           try {
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            String url = "jdbc:ucanaccess://D:/LibraryForKidsWhoCantReadGood/src/librarydb.accdb;sysSchema=true";
+            Connection con =  (Connection) DriverManager.getConnection(url);
+            String itemsQuery="SELECT * FROM items";
+            Statement stmt = con.createStatement();
+            ResultSet itemResults = stmt.executeQuery(itemsQuery);
+            Loan loans;
+            
+            while(itemResults.next()){
+                loans = new Items(itemResults.getInt("item_id"),itemResults.getString("title"),itemResults.getString("author"),itemResults.getString("yearPublished"),itemResults.getString("genre"), itemResults.getString("isbn_no"));
+                itemsList.add(items);
+            }
+            
+         }
+         
+         catch (Exception e){
+             System.out.println("Can't connect");
+         }
+           return itemsList;
+    }
+            
+         
              
 
     @SuppressWarnings("unchecked")
