@@ -6,13 +6,10 @@
 /**
  *
  * @author alyso
- */import java.sql.Connection;
-import java.sql.DriverManager;
-import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
-import java.sql.Statement;
-import java.sql.ResultSet;
-public class Members {
+ */
+
+
+   public class Members {
    final private int member_id;
     final private String email, first_name, surname, phone_number,address;
     
@@ -49,46 +46,6 @@ public class Members {
     }
         
         
-        
-         public ArrayList<Members>  membersList(){
-        ArrayList<Members> membersList = new ArrayList<>();
-           try {
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            String url = "jdbc:ucanaccess://D:/LibraryForKidsWhoCantReadGood/src/librarydb.accdb;sysSchema=true";
-            Connection con =  (Connection) DriverManager.getConnection(url);
-            String membersQuery="SELECT * FROM members";
-            Statement stmt = con.createStatement();
-            ResultSet memberResults = stmt.executeQuery(membersQuery);
-            Members members;
-            
-            while(memberResults.next()){
-                members = new Members(memberResults.getInt("member_id"),memberResults.getString("email"),memberResults.getString("first_name"),memberResults.getString("surname"),memberResults.getString("phone_number"),memberResults.getString("address"));
-                membersList.add(members);
-            }
-            
-         }
-         
-         catch (Exception e){
-             System.out.println("Can't connect");
-         }
-           return membersList;
-    }
-    public void show_members(){
-        ArrayList<Members> list = membersList();
-        DefaultTableModel model = (DefaultTableModel)memberTable.getModel();
-        Object[] row = new Object[6];
-            for(int i =0; i<list.size(); i++)
-            {
-                row[0] = list.get(i).getMemberID();
-                row[1] = list.get(i).getEmail();
-                row[2] = list.get(i).getFirstName();
-                row[3] = list.get(i).getSurname();
-                row[4] = list.get(i).getPhoneNumber();
-                row[5] = list.get(i).getAddress();
-                
-                
-                JTable memberTable 
-            }
-    
-    }
+       
 }
+

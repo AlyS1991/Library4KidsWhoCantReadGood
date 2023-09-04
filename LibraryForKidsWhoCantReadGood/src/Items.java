@@ -1,16 +1,4 @@
 
-import com.sun.jdi.connect.spi.Connection;
-import java.util.ArrayList;
-import java.sql.DriverManager;
-import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
-import java.sql.ResultSet;
-import java.sql.SQLException; 
-import java.sql.Statement;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -58,30 +46,6 @@ public class Items {
         return isbn_no;
     }
 
-
-public ArrayList<Items>  itemsList(){
-        ArrayList<Items> itemsList = new ArrayList<>();
-           try {
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            String url = "jdbc:ucanaccess://D:/LibraryForKidsWhoCantReadGood/src/librarydb.accdb;sysSchema=true";
-            Connection con =  (Connection) DriverManager.getConnection(url);
-            String itemsQuery="SELECT * FROM items";
-            Statement stmt = con.createStatement();
-            ResultSet itemResults = stmt.executeQuery(itemsQuery);
-            Items items;
-             
-            while(itemResults.next()){
-                items = new Items(itemResults.getInt("item_id"),itemResults.getString("title"),itemResults.getString("author"),itemResults.getString("yearPublished"),itemResults.getString("genre"), itemResults.getString("isbn_no"));
-                itemsList.add(items);
-            }
-            
-         }
-         
-         catch (Exception e){
-             System.out.println("Can't connect");
-         }
-           return itemsList;
-    }
 }
 
 
